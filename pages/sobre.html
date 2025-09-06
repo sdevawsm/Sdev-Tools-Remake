@@ -1,0 +1,26 @@
+@extends('base')
+
+@section('conteudo')
+  <h1>Sobre a {{ nomeEmpresa | upper }}</h1>
+
+  @if(mostrarEquipe)
+    <h2>Nossa Equipe</h2>
+    <ul>
+      @foreach(equipe as membro)
+        <li>{{ membro | capitalize }}</li>
+      @endforeach
+    </ul>
+  @endif
+
+  @switch(tipo)
+    @case('admin')
+      <p>Você é um administrador.</p>
+    @break
+    @case('visitante')
+      <p>Bem-vindo, visitante!</p>
+    @break
+    @default
+      <p>Perfil não identificado.</p>
+    @break
+  @endswitch
+@endsection
