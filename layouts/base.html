@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Workspace</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+ 
+	<!-- remover na versão final -->
+	<style>
+		body {
+			 background-image: url('https://images.pexels.com/photos/1172675/pexels-photo-1172675.jpeg?_gl=1*1s3job6*_ga*MTk0NjExMzE0OC4xNzU3MDc1MzQ0*_ga_8JE65Q40S6*czE3NTcwNzUzNDQkbzEkZzEkdDE3NTcwNzUzODUkajE5JGwwJGgw'); 
+		}
+
+		#editor,
+		.input-group {
+			background-color: white;
+		}
+
+
+		#editor {
+			min-height: 200px;
+			resize: vertical;
+			overflow: auto;
+			border: 1px solid #ccc;
+		}
+	</style>
+	<!-- remover na versão final ^ -->
+
+</head>
+
+<body>
+	@include('header')
+
+	<main>
+		@yield('conteudo')
+	</main>
+
+	@include('footer')
+	
+</body>
+
+
+
+ 
+
+</html>
