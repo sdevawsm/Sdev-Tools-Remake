@@ -224,9 +224,31 @@
     render(html);
   }
 
+  // function render(html) {
+  //   //console.log("📤 HTML final compilado:", html);
+  //   document.body.innerHTML = html;
+  // }
+
   function render(html) {
-    //console.log("📤 HTML final compilado:", html);
     document.body.innerHTML = html;
+
+    // // Inicializa Vue após renderizar o HTML
+    // const app = Vue.createApp({
+    //   data() {
+    //     return {
+    //       status: 'Página carregada com Vue!'
+    //     };
+    //   },
+    //   methods: {
+    //     exibirStatus() {
+    //       alert(this.status);
+    //     }
+    //   }
+    // });
+
+    // app.mount('#app');
+    const app = Vue.createApp(vueOptions);
+    app.mount('#app');
   }
 
   await compile();

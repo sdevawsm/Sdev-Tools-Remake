@@ -17,14 +17,8 @@
   </div>
 
   <!-- Área de edição -->
-  <div id="editor" contenteditable="true" class="border p-3" style="min-height:200px;">
+  <div id="editor" contenteditable="true" class="border p-3" style="min-height:200px;" @keyup="exibirStatus">
     ✍️ Escreva aqui seu texto...
   </div>
 </div>
 
-<script>
-    function execCmd(command, value = null) {
-      document.execCommand(command, false, value);
-      document.getElementById("editor").focus();
-    }
-  </script>
