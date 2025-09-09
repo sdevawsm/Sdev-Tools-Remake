@@ -1,13 +1,13 @@
-<div class="accordion" id="accordionPanelsStayOpenExample">
+<div class="accordion" :id="'accordionPanelsStayOpen_care' + index">
     <div class="accordion-item rounded-0">
         <h2 class="accordion-header">
             <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseOne">
+                :data-bs-target="'#panelsStayOpen-collapse_care' + index" aria-expanded="true"
+                :aria-controls="'panelsStayOpen-collapse_care' + index">
                 Atendimento
             </button>
         </h2>
-        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+        <div :id="'panelsStayOpen-collapse_care' + index " class="accordion-collapse collapse show">
             <div class="accordion-body">
                 <!-- Formulário de atendimento -->
                 <!-- Entrada de dados -->
@@ -15,81 +15,63 @@
                     <div class="col-md-6">
                         <!-- Nome -->
                         <div class="input-group input-group-sm mb-3">
-                            <span class="input-group-text" id="basic-addon1">@</span>
-                            <input type="text" class="form-control" placeholder="Nome do cliente"
-                                aria-label="Username" aria-describedby="basic-addon1">
-                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" placeholder="Nome do cliente" aria-label="Nome do cliente">
                         </div>
 
                         <!-- Telefone -->
                         <div class="input-group input-group-sm mb-3">
-                            <span class="input-group-text" id="basic-addon1">@</span>
-                            <input type="text" class="form-control" placeholder="Telefone" aria-label="Username"
-                                aria-describedby="basic-addon1">
-                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" placeholder="Telefone" aria-label="Telefone">
                         </div>
 
                         <div class="row">
                             <div class="col">
-                                <!-- Protocolo ADM -->
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="basic-addon1">@</span>
-                                    <input type="text" class="form-control" placeholder="Prot. ADM"
-                                        aria-label="Protocolo ADM" aria-describedby="basic-addon1">
-                                    <span class="input-group-text" id="basic-addon1">@</span>
-                                </div>
+                            <!-- Protocolo ADM -->
+                            <div class="input-group input-group-sm mb-3">
+                                <span class="input-group-text">@</span>
+                                <input type="text" class="form-control" placeholder="Prot. ADM" aria-label="Protocolo ADM">
+                            </div>
                             </div>
 
                             <div class="col">
-                                <!-- Protocolo referente adm -->
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="basic-addon1">@</span>
-                                    <input type="text" class="form-control" placeholder="Prot. Ref. ADM"
-                                        aria-label="Protocolo ADM" aria-describedby="basic-addon1">
-                                    <span class="input-group-text" id="basic-addon1">@</span>
-                                </div>
+                            <!-- Protocolo referente ADM -->
+                            <div class="input-group input-group-sm mb-3">
+                                <span class="input-group-text">@</span>
+                                <input type="text" class="form-control" placeholder="Prot. Ref. ADM" aria-label="Protocolo Ref. ADM">
                             </div>
-
+                            </div>
                         </div>
-
+                        <!--end col -->
                     </div>
 
                     <div class="col-md-6">
                         <!-- Protocolo chat -->
                         <div class="input-group input-group-sm mb-3">
-                            <span class="input-group-text" id="basic-addon1">@</span>
-                            <input type="text" class="form-control" placeholder="Protocolo chat"
-                                aria-label="Username" aria-describedby="basic-addon1">
-                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" placeholder="Protocolo chat" aria-label="Protocolo chat">
                         </div>
 
                         <!-- Entrada de dados -->
                         <div class="input-group input-group-sm mb-3">
-                            <span class="input-group-text" id="basic-addon1">@</span>
-                            <input type="text" class="form-control" placeholder="CPF" aria-label="CPF"
-                                aria-describedby="basic-addon1">
-                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" placeholder="CPF" aria-label="CPF">
                         </div>
 
+                        <!-- Tipo Conexão -->
                         <div class="input-group input-group-sm mb-3">
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Tipo Conexão</button>
+                            data-bs-toggle="dropdown" aria-expanded="false">Tipo Conexão</button>
                             <ul class="dropdown-menu">
-                                <li>
-                                    <div class="dropdown-item" href="#">Padrão fibra</div>
-                                </li>
-                                <li>
-                                    <div class="dropdown-item" href="#">Apresentando respostas</div>
-                                </li>
-                                <li>
-                                    <div class="dropdown-item" href="#">Sem respostas</div>
-                                </li>
+                            <li><div class="dropdown-item">Padrão fibra</div></li>
+                            <li><div class="dropdown-item">Apresentando respostas</div></li>
+                            <li><div class="dropdown-item">Sem respostas</div></li>
                             </ul>
-                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                value="Padrão fibra">
+                            <input type="text" class="form-control" aria-label="Tipo de conexão" value="Padrão fibra">
                         </div>
                     </div>
-                </div>
+
+                </div> <!-- end row -->
             </div>
         </div>
     </div>

@@ -28,6 +28,29 @@
 			overflow: auto;
 			border: 1px solid #ccc;
 		}
+
+		.customer_service {
+		width: 100%;
+		}
+
+		.service {
+		display: none;
+		}
+
+		.service.active {
+		display: block;
+		}
+
+	
+
+		.app-bg{
+			background-color: aqua;
+			padding: 10px;
+		}
+
+
+
+
 	</style>
 	<!-- remover na versão final ^ -->
 
@@ -36,8 +59,19 @@
 <body>
 	@include('header')
 
-	<main id="app">
+	<main id="app" class="container">
+		 
+		<div class="slider-controls">
+			<button onclick="showService(currentIndex - 1)">⬅️</button>
+			<button onclick="showService(currentIndex + 1)">➡️</button>
+		</div>
+
+
+		@include('apps/services/tabs_clients')
+		@include('apps/services/btns_functions')
 		@yield('conteudo')
+		@include('apps/btns_scripts/base_app')
+	 
 	</main>
 
 	@include('footer')

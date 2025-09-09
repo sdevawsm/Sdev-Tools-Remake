@@ -249,6 +249,10 @@
     // app.mount('#app');
     const app = Vue.createApp(vueOptions);
     app.mount('#app');
+    // Inicializa com o primeiro visível
+ 
+      showService(0);
+   
   }
 
   await compile();

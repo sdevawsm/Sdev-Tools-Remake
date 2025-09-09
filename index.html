@@ -1,9 +1,9 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-            integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-            crossorigin="anonymous"></script>
+	integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+	integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+	crossorigin="anonymous"></script>
 
 <script src="vue.global.js"></script>
 <script src="data.js"></script>
@@ -12,13 +12,70 @@
 
 
 <script>
-    function execCmd(command, value = null) {
-      document.execCommand(command, false, value);
-      document.getElementById("editor").focus();
-    }
+	function execCmd(command, value = null) {
+		document.execCommand(command, false, value);
+		document.getElementById("editor").focus();
+	}
+
+	let currentIndex = 0;
+
+	function showService(index) {
+		const items = document.querySelectorAll(".service");
+		const total = items.length;
+
+		if (index < 0) index = 0;
+		if (index >= total) index = total - 1;
+
+		items.forEach((item, i) => {
+			item.classList.toggle("active", i === index);
+		});
+
+		currentIndex = index;
+	}
+
+
+
+
+	function handlePaletteClick(event) {
+		const btn = event.target.closest("button");
+		if (!btn) return;
+
+		const palette = btn.dataset.palette;
+		const index = parseInt(btn.dataset.index);
+		const container = btn.closest(".service");
+
+		alterarCorDeFundo(container, palette, index);
+	}
+
+	function alterarCorDeFundo(el, navegador, index) {
+		const paletas = {
+			chrome: [
+				"rgba(0, 120, 212, 0.8)", "rgba(0, 153, 0, 0.8)", "rgba(255, 105, 180, 0.8)",
+				"rgba(128, 0, 128, 0.8)", "rgba(255, 140, 0, 0.8)", "rgba(220, 20, 60, 0.8)",
+				"rgba(255, 215, 0, 0.8)", "rgba(128, 128, 128, 0.8)"
+			],
+			edge: [
+				"rgba(0, 103, 184, 0.8)", "rgba(0, 128, 0, 0.8)", "rgba(255, 92, 160, 0.8)",
+				"rgba(102, 0, 153, 0.8)", "rgba(255, 120, 0, 0.8)", "rgba(200, 0, 40, 0.8)",
+				"rgba(255, 200, 0, 0.8)", "rgba(100, 100, 100, 0.8)"
+			]
+		};
+
+		const cor = paletas[navegador]?.[index] || "rgba(255, 255, 255, 0.2)";
+		if (el) {
+  el.style.background = cor;
+  el.style.backdropFilter = "blur(12px)";
+  el.style.webkitBackdropFilter = "blur(12px)";
+  el.style.border = "solid 4px " + cor; // você pode ajustar a espessura aqui
+  el.style.borderRadius = "5px"; // opcional, para suavizar os cantos
+}
+ else {
+			console.warn("⚠️ Elemento .service não encontrado.");
+		}
+	}
+
+
+
+
 
 </script>
- 
-
-
- 

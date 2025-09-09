@@ -1,17 +1,30 @@
-<div class="accordion " id=" ">
+<div class="accordion" :id="'accordionPanelsStayOpen_service' + index">
     <div class="accordion-item rounded-0">
         <h2 class="accordion-header">
             <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-                aria-controls="panelsStayOpen-collapseThree">
-                Serviços       
+                :data-bs-target="'#panelsStayOpen-collapse_service' + index" aria-expanded="true"
+                :aria-controls="'panelsStayOpen-collapse_service' + index">
+                Serviços
             </button>
-
         </h2>
-        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show">
+        <div :id="'panelsStayOpen-collapse_service' + index " class="accordion-collapse collapse show">
             <div class="accordion-body">
-                Serviços  
+                <!-- Formulário de Agendamento -->
+                <!-- Entrada de dados -->
+                <div class="row">
+                    <div class="col-md-6">
+                      col 1
+   
+                        <!--end col -->
+                    </div>
+
+                    <div class="col-md-6">
+                       col 2
+                    </div>
+
+                </div> <!-- end row -->
             </div>
         </div>
     </div>
+
 </div>
