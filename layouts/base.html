@@ -48,6 +48,24 @@
 			padding: 10px;
 		}
 
+		.slider-controls{
+			display: inline;
+		}
+
+		.slider-controls button{
+			background: none;
+			border: none;
+		}
+
+		.service_colors_arrows{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+		}		
+
+
+
 
 
 
@@ -60,13 +78,6 @@
 	@include('header')
 
 	<main id="app" class="container">
-		 
-		<div class="slider-controls">
-			<button onclick="showService(currentIndex - 1)">⬅️</button>
-			<button onclick="showService(currentIndex + 1)">➡️</button>
-		</div>
-
-
 		@include('apps/services/tabs_clients')
 		@include('apps/services/btns_functions')
 		@yield('conteudo')

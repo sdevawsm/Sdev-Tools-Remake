@@ -89,7 +89,7 @@ const vueOptions = {
   data() {
     return {
       status: 'Página carregada com Vue!',
-      serviceItems: 10,
+      serviceItems: 8,
 	  pages:  window.pageData.Pages.pages.workspace
     };
   },

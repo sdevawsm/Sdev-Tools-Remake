@@ -43,11 +43,17 @@
 		const palette = btn.dataset.palette;
 		const index = parseInt(btn.dataset.index);
 		const container = btn.closest(".service");
+		const service = parseInt(btn.dataset.serv);
 
-		alterarCorDeFundo(container, palette, index);
+		const cor = obterCorDaPaleta(palette, index);
+
+		aplicarEstilo(container, cor);
+		destacarBotaoNavegacao(service, cor);
 	}
 
-	function alterarCorDeFundo(el, navegador, index) {
+
+
+	function obterCorDaPaleta(navegador, index) {
 		const paletas = {
 			chrome: [
 				"rgba(0, 120, 212, 0.8)", "rgba(0, 153, 0, 0.8)", "rgba(255, 105, 180, 0.8)",
@@ -61,19 +67,43 @@
 			]
 		};
 
-		const cor = paletas[navegador]?.[index] || "rgba(255, 255, 255, 0.2)";
-		if (el) {
-  el.style.background = cor;
-  el.style.backdropFilter = "blur(12px)";
-  el.style.webkitBackdropFilter = "blur(12px)";
-  el.style.border = "solid 4px " + cor; // você pode ajustar a espessura aqui
-  el.style.borderRadius = "5px"; // opcional, para suavizar os cantos
-}
- else {
-			console.warn("⚠️ Elemento .service não encontrado.");
-		}
+		return paletas[navegador]?.[index] || "rgba(255, 255, 255, 0.2)";
 	}
 
+
+	function aplicarEstilo(el, cor) {
+		if (!el) {
+			console.warn("⚠️ Elemento não encontrado.");
+			return;
+		}
+
+		el.style.background = cor;
+		el.style.backdropFilter = "blur(12px)";
+		el.style.webkitBackdropFilter = "blur(12px)";
+		el.style.border = `solid 4px ${cor}`;
+		el.style.borderRadius = "5px";
+	}
+
+
+	function destacarBotaoNavegacao(index, cor) {
+		const navTabs = document.querySelectorAll(".nav-tabs .nav-link");
+
+		navTabs.forEach((tab, i) => {
+			if (i === index) {
+				aplicarEstilo(tab, cor);
+				tab.style.color = "#fff";
+				tab.style.fontWeight = "bold";
+			} else {
+				//tab.removeAttribute("style"); // limpa estilos anteriores
+			}
+		});
+	}
+
+
+	function alterarCorDeFundo(el, navegador, index) {
+		const cor = obterCorDaPaleta(navegador, index);
+		aplicarEstilo(el, cor);
+	}
 
 
 

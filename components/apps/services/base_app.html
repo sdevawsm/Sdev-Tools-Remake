@@ -1,7 +1,16 @@
 <div class="container_services">
-  <div v-for="(item, index) in serviceItems" :key="index"  class="service">
+  <div v-for="(item, index) in serviceItems" :key="index"  class="service" >
     
-	@include('apps/services/btns_colors')
+    
+
+	  <div class="service_colors_arrows">
+        @include('apps/services/btns_colors')
+
+      <div class="slider-controls">
+        <button onclick="showService(currentIndex - 1)">⬅️</button>
+        <button onclick="showService(currentIndex + 1)">➡️</button>
+      </div>
+    </div>
 
     @include('apps/services/acordion_care')
     @include('apps/services/acordion_scheduling')
