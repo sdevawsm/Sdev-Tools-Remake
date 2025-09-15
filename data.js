@@ -83,23 +83,42 @@ window.pageConfig = {
 };
 
 
+ 
 
 // Arquitetura separada
 const vueOptions = {
-  data() {
-    return {
-      status: 'Página carregada com Vue!',
-      serviceItems: 8,
-	  pages:  window.pageData.Pages.pages.workspace
-    };
-  },
-  methods: {
-    exibirStatus() {
-      //alert(this.status);
-	  console.log(  this.pages )
-    },
-    incrementar() {
-      this.contador++;
-    }
-  }
-};
+	data() {
+	  return {
+		status: 'Página carregada com Vue!',
+		serviceItems: 8,
+		pages: window.pageData.Pages.pages.workspace,
+		contador: 0,
+		items: [
+		  { text: 'Item 1', showClose: false },
+		  { text: 'Item 2', showClose: false },
+		  { text: 'Item 3', showClose: false }
+		],
+		pressTimer: null
+	  };
+	},
+	methods: {
+	  exibirStatus() {
+		console.log(this.pages);
+	  },
+	  incrementar() {
+		this.contador++;
+	  },
+	  startPress(index) {
+		this.pressTimer = setTimeout(() => {
+		  this.items[index].showClose = true;
+		}, 1000); // 1 segundo
+	  },
+	  cancelPress() {
+		clearTimeout(this.pressTimer);
+	  },
+	  removeItem(index) {
+		this.items.splice(index, 1);
+	  }
+	}
+  };
+  

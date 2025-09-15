@@ -1,13 +1,13 @@
 <div class="accordion" :id="'accordionPanelsStayOpen_scheduling' + index">
     <div class="accordion-item rounded-0">
         <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                :data-bs-target="'#panelsStayOpen-collapse_scheduling' + index" aria-expanded="true"
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                :data-bs-target="'#panelsStayOpen-collapse_scheduling' + index" aria-expanded="false"
                 :aria-controls="'panelsStayOpen-collapse_scheduling' + index">
-                Atendimento
+                <i class="bi bi-calendar-date me-2"></i> <label for="">Agendamento</label>
             </button>
         </h2>
-        <div :id="'panelsStayOpen-collapse_scheduling' + index " class="accordion-collapse collapse show">
+        <div :id="'panelsStayOpen-collapse_scheduling' + index " class="accordion-collapse collapse">
             <div class="accordion-body">
                 <!-- Formulário de Agendamento -->
                 <!-- Entrada de dados -->

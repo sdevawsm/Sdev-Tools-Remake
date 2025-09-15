@@ -1,13 +1,17 @@
-<div class="accordion" :id="'accordionPanelsStayOpen_service' + index">
+<div class="accordion" :id="'accordionPanelsStayOpen_service' + index" 
+    @mousedown="startPress(index)"
+    @mouseup="cancelPress"
+    @mouseleave="cancelPress"
+    >
     <div class="accordion-item rounded-0">
         <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                :data-bs-target="'#panelsStayOpen-collapse_service' + index" aria-expanded="true"
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                :data-bs-target="'#panelsStayOpen-collapse_service' + index" aria-expanded="false"
                 :aria-controls="'panelsStayOpen-collapse_service' + index">
-                Serviços
+                <i class="bi bi-tools me-2"></i><label for="">Serviços</label>
             </button>
         </h2>
-        <div :id="'panelsStayOpen-collapse_service' + index " class="accordion-collapse collapse show">
+        <div :id="'panelsStayOpen-collapse_service' + index " class="accordion-collapse collapse">
             <div class="accordion-body">
                 <!-- Formulário de Agendamento -->
                 <!-- Entrada de dados -->
