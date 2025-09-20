@@ -19,6 +19,7 @@ Route::post('/login', [AuthController::class, 'authenticate'])->name('login.subm
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
+//rotas 
 Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
 Route::get('/workspace', [WorkspaceController::class, 'workspace'])->name('workspace');
 
